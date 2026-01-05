@@ -10,6 +10,7 @@ tokio = { version = "1.49.0", features = ["macros", "rt-multi-thread"] }
 resources = { path = "../resources" }
 tracing.workspace = true
 tracing-subscriber = { version = "0.3.22", features = ["fmt", "env-filter"] }
+clap = { version = "4.5.54", features = ["derive", "env"] }
 
 [build-dependencies]
 serde_yaml = "0.9.34"

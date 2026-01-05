@@ -18,7 +18,7 @@ ensure-cluster-is-running:
 
 ## dev: Run the operator in development mode with automatic rebuilds on file changes
 dev: ensure-cluster-is-running
-	watchexec --exts rs,toml --restart -- 'cargo build && kubectl apply --filename operator/echo-crd.yaml && RUST_LOG=info cargo run --package operator'
+	watchexec --exts rs,toml --restart -- 'cargo build && kubectl apply --filename operator/echo-crd.yaml && RUST_LOG=info WATCH_NAMESPACE=default cargo run --package operator'
 
 ## clean: Delete the k3d cluster and cleanup any resources
 clean:
