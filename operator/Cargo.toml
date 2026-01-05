@@ -1,0 +1,17 @@
+[package]
+name = "operator"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+futures = "0.3.31"
+kube = { workspace = true, features = ["runtime", "derive"] }
+tokio = { version = "1.49.0", features = ["macros", "rt-multi-thread"] }
+resources = { path = "../resources" }
+tracing.workspace = true
+tracing-subscriber = { version = "0.3.22", features = ["fmt", "env-filter"] }
+
+[build-dependencies]
+serde_yaml = "0.9.34"
+resources = { path = "../resources" }
+kube.workspace = true

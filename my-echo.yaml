@@ -1,0 +1,7 @@
+apiVersion: pontifex.dev/v1
+kind: Echo
+metadata:
+  name: my-echo
+  namespace: default
+spec:
+  message: "Hello, Damien!"

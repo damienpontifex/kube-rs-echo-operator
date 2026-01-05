@@ -1,0 +1,12 @@
+[package]
+name = "resources"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+k8s-openapi = { version = "0.26.1", features = ["latest", "schemars"] }
+kube = { workspace = true, features = ["runtime", "derive"] }
+schemars = "1.2.0"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.148"
+tracing.workspace = true

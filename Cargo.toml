@@ -1,0 +1,10 @@
+[workspace]
+members = [
+  "operator",
+  "resources",
+]
+resolver = "3"
+
+[workspace.dependencies]
+kube = "2.0.1"
+tracing = "0.1"
