@@ -28,13 +28,13 @@ spec:
           status:
             nullable: true
             properties:
-              echoed:
-                type: boolean
               echoed_message:
                 nullable: true
                 type: string
-            required:
-            - echoed
+              observed_generation:
+                format: int64
+                nullable: true
+                type: integer
             type: object
         required:
         - spec

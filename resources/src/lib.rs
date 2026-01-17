@@ -22,8 +22,8 @@ pub struct EchoSpec {
 
 #[derive(Debug, Serialize, Deserialize, Clone, JsonSchema, Default)]
 pub struct EchoStatus {
+    pub observed_generation: Option<i64>,
     pub echoed_message: Option<String>,
-    pub echoed: bool,
 }
 
 #[derive(Clone)]
@@ -39,7 +39,7 @@ impl Echo {
             self.metadata.name.as_deref().unwrap_or("<unknown>")
         );
         if let Some(status) = &self.status
-            && status.echoed
+            && status.observed_generation == self.metadata.generation
             && let Some(previous_message) = status.echoed_message.as_deref()
             && previous_message == self.spec.message
         {
@@ -59,7 +59,7 @@ impl Echo {
         };
 
         let status = EchoStatus {
-            echoed: true,
+            observed_generation: self.metadata.generation,
             echoed_message: Some(self.spec.message.clone()),
         };
         api.patch_status(
